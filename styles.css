@@ -23,11 +23,15 @@ h1{
     color: var(--off-white);
 }
 
+/* a{
+    text-decoration: none;
+    color: #1E40AF
+    ;
+} */
 
 body{
     font-family: 'Lora';
     background-image: url("blog_bg_1.jpg");
-    /* background-position: center; */
     background-repeat: no-repeat;
     background-size: cover;
 
@@ -75,4 +79,8 @@ main {
     color: var(--off-white)
 }
 
-
+@media only screen and (min-width: 400px) {
+    body {
+        background-image: url()();
+    }
+}
