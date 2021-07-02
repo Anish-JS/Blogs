@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cache Coherence | Anish</title>
+    <link rel="stylesheet" href="../styles.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+
+<body>
+    <div class="header-nav">
+    <div><a href="../index.html"><i class="fas fa-bars fa-2x" class="dots"></i></a>
+    </div>
+    <div class="header">What is Cache Coherence?</div>
+</div>
+    <main>
+        <section class="section off-white">
+            <div class="container">
+                <p><span class="highlighter">Parallel processing</span> introduced a computer organization
+                    system that allows multiple CPUs for
+                    simultaneous and concurrent execution of instructions to increase the computing speed and throughput
+                    of the system.</p>
+
+                <p>An <u>MIMD</u> computer organization allows for the use of multiple CPUs, IOPs, and ALUs in a single
+                    computer to process and execute instructions concurrently.</p>
+
+                <p>All the processors have a shared connection to the same main memory.</p>
+
+                <p>In a multiprocessor system, all the processors have a local/private memory cache connected to a
+                    common bus that facilitates read and write operations to the shared main memory. The main reason for
+                    having an adjunct private cache associated with each processor is to reduce the average access time
+                    to increase the closeness to the CPU.</p>
+
+                <p>The same information/instructions may reside in a number of copies in all the private caches that
+                    are accessing the shared memory.</p>
+
+                <p> To ensure that the system executes the correct memory operations and keeps all the copies of
+                    instructions across the caches identical, we need to look at the cache coherence problem.</p>
+
+                <h3 class="sub-headers">Problem</h3>
+                <p>A cache coherence makes sure that multiple processors are accessing accurate instructions/data to
+                    avoid
+                    a stale data existence. Modifying data in one private cache leads to inconsistencies of the same
+                    data
+                    present in other private cache blocks – this leads to cache incoherence.</p>
+
+                <p>To illustrate the problem, let’s consider a three processor configuration that has 3 private caches’
+                    along with a shared main memory (shown in Fig 1.1).</p>
+
+                <p>At some point in time, let’s assume that an element (X) is loaded into the P1, P2, and P3 processors.
+                    For simplicity let X contain the value 70. When it is initially loaded, all the processors and the
+                    shared memory will have a consistent copy of X (shown in Fig 1.1). Whenever a processor wants to
+                    modify
+                    the data in its private cache with a write request, inconsistent data will be said to exist in the
+                    remaining caches and main memory.</p>
+
+                <p>We can depict this with the <em>write-through and write-back strategies of the cache.</em></p>
+
+            </div>
+            
+        </section>
+        <section class="section off-white">
+            <div class="container">
+                <img src="1.webp" class="blog-image" />
+                <p style="text-align:center;margin: 0.5rem;font-size:small;">Fig 1.1 Cache after a load operation from
+                    main memory</p>
+
+            </div>
+            
+        </section>
+        <section class="section off-white">
+
+            <div class="container">
+                <p>Suppose a store of X is issued by P1 and updates the value of X in its cache to 130, a new value in
+                    the write-through protocol. As a result, the value of X in both the cache and the shared memory
+                    would be updated.</p>
+
+                <p>Write through maintains consistency of data between the private cache and main memory while the other
+                    two caches (P2 and P3) contain invalid/stale data (shown in Fig 1.2). In the case of a write-back
+                    protocol, the new value of X is only rendered in the private cache of P1 with the new value 130 – it
+                    is tagged by a dirty or modified bit. In write-back the store doesn’t modify the main memory, which
+                    leads to inconsistencies across the remaining two caches of P2, P3, and the main memory (shown in
+                    Fig 1.3).</p>
+
+                <p>Data inconsistencies that lead to cache incoherence may also occur in DMA (Direct memory access)
+                    transfers between IOP (e.g., disks) and the main memory. Thus, the following deals with ways in
+                    which to overcome cache incoherence and increase its execution efficiency.
+                </p>
+            </div>
+            
+        </section>
+
+        <section class="section off-white">
+
+            <div class="container">
+                <img src="2.webp" class="blog-image" />
+                <p style="text-align: center;margin-top: 0.5rem;font-size: small;">Fig 1.2 Write-through cache
+                    incoherence</p>
+            </div>
+            
+        </section>
+
+        <section class="section off-white">
+
+            <div class="container">
+                <img src="3.webp" class="blog-image" />
+                <p style="text-align: center;margin-top: 0.5rem;font-size: small;">Fig 1.3 Write-back Cache Incoherence
+                </p>
+            </div>
+            
+        </section>
+
+        <section class="section off-white">
+
+            <div class="container">
+                <h2 class="blog-headers">Solutions to cache coherence problem
+                </h2>
+                <ul style="margin: 1rem;;">
+                    <li>Disallow the use of private cache memories for each processor in a multiprocessor system and
+                        have a shared cache memory associated with the main memory instead. However, this increases the
+                        average access times, which makes the system slower.</li>
+                    <li>Another technique is to only allow non-shared and read-only data to be stored in the cache –
+                        these items are said to be cacheable. Shared writable data is said to be non-cacheable. The
+                        non-cacheable data remains in the shared main memory while read-only data is allowed to be
+                        accessed into the cache. However, this creates a software overhead and reduces performance.</li>
+                </ul>
+            </div>
+            
+        </section>
+
+        <section class="section off-white">
+
+            <div class="container">
+                <h2 class="blog-headers">Write-through protocol</h2>
+                <p>In a cache that uses a write-through protocol, there are two schemes or versions to overcome cache
+                    incoherence.
+                </p>
+                <ol style="margin: 2rem;">
+                    <li>
+                        <h3 class="sub-headers">Updating</h3>
+                    </li>
+                    <p>When a processor writes a new value into its block of cache, it is also written into the main
+                        memory to maintain consistency between them. Since copies of this data are also present in the
+                        cache blocks of other processors that contain older data, a simple way to update all the cache
+                        blocks is by issuing a broadcast signal to write the updated data into the cache blocks. As a
+                        result, all the copies of the cache will be said to contain updated/new data.</p>
+
+                    <li>
+                        <h3 class="sub-headers">Invalidation</h3>
+                    </li>
+                    <p>Once the modified data is written into the processor’s private cache and sent to the main memory,
+                        the copies of stale data present in the other cache blocks will be invalidated with an
+                        invalidation broadcast that disallows the processor to access said data.</p>
+                </ol>
+                <h2 class="blog-headers">Write back protocol</h2>
+                <p>
+                    The block-to-be-updated ownership of the block-to-be-updated is made exclusive only to the
+                    processor
+                    that requested a write operation on it and issued an invalidate broadcast request. If another
+                    processor wishes to read the modified block, the request is sent to the current owner and a read
+                    is
+                    serviced to the processor while it updates the main memory.</p>
+
+                <p>Suppose another processor requests a write operation on a memory block that has been modified. In
+                    that case, the processor’s cache block containing it sends the data to the requesting processor
+                    along with its ownership while the current processor invalidates its copy.</p>
+
+                <p>These are the methods used by a write-back cache protocol to avoid cache incoherence.
+                </p>
+                <h2 class="blog-headers">Cache controller</h2>
+                <p>
+                    A cache controller is designed to monitor all requests placed on the common bus connecting the
+                    shared main memory and the cache blocks. The bus controller that monitors this action is called
+                    the <strong class="highlighter">cache controller</strong> as it snoops the bus network for
+                    possible write operations.</p>
+
+                <p> Based on the request, the controller either invalidates its caches’ data or updates it when a
+                    match is detected in its cache block. Every cache block associated with a processor has a snoopy
+                    controller that monitors the bus network, such a cache is called a <strong
+                        class="highlighter">snoopy cache.</strong>
+                </p>
+            </div>
+
+        </section>
+    </main>
+
+    <footer class="footer">
+        <h3 style="margin-bottom: 1rem;">Let's Connect On</h3>
+        <div class="wrapper">
+            <span><a href="https://www.facebook.com/anish.j.s.754/"><i class="fab fa-facebook-f fa-lg"></i></a></span>
+            <span><a href="https://github.com/Anish-JS"><i class="fab fa-github fa-lg"></i></a></span>
+            <span><a href="https://www.instagram.com/js_anish/"><i class="fab fa-instagram fa-lg"></i></a></span>
+            <span><a href="https://www.linkedin.com/in/anish-jakka-singaraiah-b534511b2/"><i
+                        class="fab fa-linkedin fa-lg"></i></a></span>
+
+        </div>
+    </footer>
+
+
+</body>
+
+</html>

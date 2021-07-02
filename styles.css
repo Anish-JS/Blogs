@@ -1,14 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Lora&display=swap');
 
 :root {
-    --dark-gray: #4B5563;
+    --dark-gray: #111827;
     --off-white: #E5E7EB;
 }
 
 * {
     padding: 0;
     margin: 0;
-
 }
 
 .header{
@@ -25,20 +24,19 @@
 } 
 
 body{
-    font-family: 'Lora';
-    background-image: url("blog_bg_1.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
+     font-family: 'Lora';
+    background-color: #1F2937;
 
 }
 main {
     margin: auto;
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 .blog-headers{
     text-align: justify;
     margin-bottom: 0.5rem;
+    color: var(--dark-gray);
 }
 
 .section{
@@ -47,21 +45,29 @@ main {
 }
 
 .off-white{
-    background-color: var(--off-white);
+    background-color: rgb(229,231,235,0.8);
     border-radius: 0.5rem;
 }
 
 .container{
     margin: 0.5rem;
-    text-align: center;
+    text-align: justify;
     font-size: 1.1rem ;
 }
+
+.sub-headers{
+    margin: 0.5rem;
+    color: var(--dark-gray);
+    font-weight: bold;
+}
+
 
 .footer{
     text-align: center;
     font-size: 1.5rem;
     width: 100%;
-    color: var(--off-white)
+    color: var(--off-white);
+    margin-bottom: 1rem;
 }
 
 .wrapper{
@@ -72,8 +78,44 @@ main {
 }
 
 span i{
-    color: white;
+    color: var(--off-white);
 }
+
+.highlighter{
+    color: var(--dark-gray);
+    font-weight: bold;
+}
+
+p{
+    margin: 0.5rem;
+}
+
+.blog-image{
+    margin-top: 1rem;
+    max-width: 70%;
+    margin-left:auto;
+    margin-right: auto;
+    display: block;
+    padding: auto;
+}
+
+.header-nav{
+    text-align: center;
+    margin: 1rem;
+}
+
+.header-nav div{
+     margin-right: 0.5rem;
+     margin-left:0.5rem ; 
+    display: inline-block;
+}
+
+.header-nav i{
+    color: var(--off-white);
+}
+
+
+
 
 
 
