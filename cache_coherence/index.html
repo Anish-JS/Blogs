@@ -11,11 +11,14 @@
 </head>
 
 <body>
-    <h1 class="header">What is Cache Coherence?</h1>
+    <div class="header-nav">
+    <div><a href="../index.html"><i class="fas fa-bars fa-2x" class="dots"></i></a>
+    </div>
+    <div class="header">What is Cache Coherence?</div>
+</div>
     <main>
         <section class="section off-white">
             <div class="container">
-                <!-- <h2 class="blog-headers"><a href="/" style="color: #4B5563;">BlogOne</a></h2> -->
                 <p><span class="highlighter">Parallel processing</span> introduced a computer organization
                     system that allows multiple CPUs for
                     simultaneous and concurrent execution of instructions to increase the computing speed and throughput
@@ -57,7 +60,7 @@
                 <p>We can depict this with the <em>write-through and write-back strategies of the cache.</em></p>
 
             </div>
-            <!-- <a href="#" class="link link-primary">Read More</a> -->
+            
         </section>
         <section class="section off-white">
             <div class="container">
@@ -66,7 +69,7 @@
                     main memory</p>
 
             </div>
-            <!-- <a href="#" class="link link-primary">Read More</a> -->
+            
         </section>
         <section class="section off-white">
 
@@ -87,7 +90,7 @@
                     which to overcome cache incoherence and increase its execution efficiency.
                 </p>
             </div>
-            <!-- <a href="#" class="link link-primary">Read More</a> -->
+            
         </section>
 
         <section class="section off-white">
@@ -97,7 +100,7 @@
                 <p style="text-align: center;margin-top: 0.5rem;font-size: small;">Fig 1.2 Write-through cache
                     incoherence</p>
             </div>
-            <!-- <a href="#" class="link link-primary">Read More</a> -->
+            
         </section>
 
         <section class="section off-white">
@@ -107,7 +110,7 @@
                 <p style="text-align: center;margin-top: 0.5rem;font-size: small;">Fig 1.3 Write-back Cache Incoherence
                 </p>
             </div>
-            <!-- <a href="#" class="link link-primary">Read More</a> -->
+            
         </section>
 
         <section class="section off-white">
@@ -125,7 +128,7 @@
                         accessed into the cache. However, this creates a software overhead and reduces performance.</li>
                 </ul>
             </div>
-            <!-- <a href="#" class="link link-primary">Read More</a> -->
+            
         </section>
 
         <section class="section off-white">
@@ -171,31 +174,18 @@
                 <p>
                     A cache controller is designed to monitor all requests placed on the common bus connecting the
                     shared main memory and the cache blocks. The bus controller that monitors this action is called
-                    the <strong style="color: #374151;">cache controller</strong> as it snoops the bus network for
+                    the <strong class="highlighter">cache controller</strong> as it snoops the bus network for
                     possible write operations.</p>
 
                 <p> Based on the request, the controller either invalidates its caches’ data or updates it when a
                     match is detected in its cache block. Every cache block associated with a processor has a snoopy
                     controller that monitors the bus network, such a cache is called a <strong
-                        style="color: #374151;">snoopy cache.</strong>
+                        class="highlighter">snoopy cache.</strong>
                 </p>
             </div>
-            <!-- <a href="#" class="link link-primary">Read More</a> -->
+
         </section>
-
-
-
-
-
-
-
     </main>
-
-
-
-
-
-
 
     <footer class="footer">
         <h3 style="margin-bottom: 1rem;">Let's Connect On</h3>

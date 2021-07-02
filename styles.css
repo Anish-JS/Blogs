@@ -8,8 +8,6 @@
 * {
     padding: 0;
     margin: 0;
-    box-sizing: border-box;
-
 }
 
 .header{
@@ -27,9 +25,6 @@
 
 body{
      font-family: 'Lora';
-    /* background-image: url("test.jpg");
-    background-repeat:t;
-    background-size: cover; */
     background-color: #1F2937;
 
 }
@@ -83,7 +78,7 @@ main {
 }
 
 span i{
-    color: white;
+    color: var(--off-white);
 }
 
 .highlighter{
@@ -103,3 +98,24 @@ p{
     display: block;
     padding: auto;
 }
+
+.header-nav{
+    text-align: center;
+    margin: 1rem;
+}
+
+.header-nav div{
+     margin-right: 0.5rem;
+     margin-left:0.5rem ; 
+    display: inline-block;
+}
+
+.header-nav i{
+    color: var(--off-white);
+}
+
+
+
+
+
+
